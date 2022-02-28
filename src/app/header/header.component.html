@@ -1,0 +1,6 @@
+<header class="container">
+    <div class="header_logo"></div>
+    <button class="header_login_btn" routerLink="/login" *ngIf="!(isLoggedIn$ | async)">Login</button>
+    <button class="header_register_btn" routerLink="/signUp" *ngIf="!(isLoggedIn$ | async)">Signup</button>
+    <button class="header_register_btn" (click)="logout()" *ngIf="isLoggedIn$ | async">Log out</button>
+</header>

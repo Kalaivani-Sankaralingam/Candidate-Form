@@ -1,0 +1,23 @@
+.btn_login {
+    color: #fff;
+    background-color: #04aa6d;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.btn_login[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed
+}
+
+.back_to_login {
+    top: 10px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .container_middle {
+        padding: 10px;
+        width: 90%;
+    }
+}

@@ -1,0 +1,75 @@
+    .homePage_content {
+        margin: auto;
+        margin-top: 20px;
+        padding: 0 20px;
+        background: white;
+    }
+    
+     :host::ng-deep .formfield-module__root {
+        width: 27%;
+        margin-right: 7%;
+    }
+    
+     :host::ng-deep .formfield-module__input {
+        padding: 10px;
+    }
+    
+     ::ng-deep .accordion_header {
+        background: #308aaa;
+    }
+    
+     ::ng-deep h1 {
+        margin: 0;
+    }
+    
+     ::ng-deep .accordion_header h1 {
+        padding-left: 10px;
+        ;
+    }
+    
+     ::ng-deep .accordion_content {
+        padding: 1% 0px 2% 5%;
+        overflow: hidden;
+    }
+    
+     ::ng-deep .asterisk__color {
+        color: red;
+    }
+    
+     ::ng-deep .next_btn {
+        float: right;
+        color: #fff;
+        background-color: #04aa6d;
+        margin-top: 35px;
+        margin-right: 103px;
+        padding-left: 50px;
+        padding-right: 50px;
+        font-size: 20px;
+    }
+    
+     ::ng-deep .accordion_content h2 {
+        margin-bottom: 0px;
+        background: rgb(233, 229, 229);
+        padding-left: 10px;
+        width: 93%;
+    }
+    
+     ::ng-deep .accodrion_item {
+        margin-bottom: 10px;
+    }
+    
+    @media (max-width: 600px) {
+         ::ng-deep .formField-row {
+            flex-direction: column;
+        }
+         :host::ng-deep .formfield-module__root {
+            width: 95%;
+        }
+         ::ng-deep .accordion_header h1 {
+            font-size: 20px;
+        }
+         ::ng-deep .next_btn {
+            margin-top: 20px;
+            margin-right: 0;
+        }
+    }

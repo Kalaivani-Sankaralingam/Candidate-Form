@@ -1,0 +1,59 @@
+<form [formGroup]="eduForm">
+    <div formArrayName="eduDetails">
+        <div class="cls_workExp" *ngFor="let t of eduDetails.controls; let i = index" [formGroupName]="i">
+            <h3>Education {{i+1}}</h3>
+            <div class="formField-row">
+                <div class="formfield-module__root">
+                    <label for="collegeName{{i}}" class="formfield-module__label">School or University<span
+              class="asterisk__color">*</span></label>
+                    <input id="collegeName{{i}}" formControlName="collegeName" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('collegeName')?.invalid&&eduDetails.controls[i].get('collegeName')?.touched">
+                        School or University is Required</div>
+
+                </div>
+                <div class="formfield-module__root">
+                    <label for="degree" class="formfield-module__label">Degree<span class="asterisk__color">*</span></label>
+                    <input id="degree" formControlName="degree" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('degree')?.invalid&&eduDetails.controls[i].get('degree')?.touched">Degree is Required</div>
+
+                </div>
+                <div class="formfield-module__root">
+                    <label for="subject" class="formfield-module__label">Field of Study<span
+              class="asterisk__color">*</span></label>
+                    <input id="subject" formControlName="subject" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('subject')?.invalid&&eduDetails.controls[i].get('subject')?.touched">Field of Study is Required</div>
+
+                </div>
+            </div>
+            <div class="formField-row">
+                <div class="formfield-module__root">
+                    <label for="result" class="formfield-module__label">Overall Result (GPA)<span
+              class="asterisk__color">*</span></label>
+                    <input id="result" formControlName="result" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('result')?.invalid&&eduDetails.controls[i].get('result')?.touched">Overall Result is Required</div>
+
+                </div>
+                <div class="formfield-module__root">
+                    <label for="fromDate" class="formfield-module__label">From<span class="asterisk__color">*</span></label>
+                    <input id="fromDate" formControlName="fromDate" class="formfield-module__input" type="month" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('fromDate')?.invalid&&eduDetails.controls[i].get('fromDate')?.touched">
+                        From date is Required</div>
+
+                </div>
+                <div class="formfield-module__root">
+                    <label for="toDate" class="formfield-module__label">To<span class="asterisk__color">*</span></label>
+                    <input id="toDate" formControlName="toDate" class="formfield-module__input" type="month" />
+                    <div class="formError" *ngIf="eduDetails.controls[i].get('toDate')?.invalid&&eduDetails.controls[i].get('toDate')?.touched">To date is Required</div>
+
+                </div>
+                <button (click)="remove(i)" class="remove_btn"></button>
+            </div>
+
+        </div>
+    </div>
+    <button (click)="add()" class="add_btn" *ngIf="_counter == 0">Add Education</button>
+    <button (click)="add()" class="add_btn" *ngIf="_counter >= 1">Add another</button>
+    <button (click)="onSubmit()" class="next_btn" [disabled]="!eduForm.valid && this.eduDetails.length>0
+    ">Next</button>
+
+</form>

@@ -1,0 +1,103 @@
+<form [formGroup]="piForm">
+    <div class="formField-row">
+        <div class="formfield-module__root">
+            <label for="title" class="formfield-module__label">Title<span class="asterisk__color">*</span></label>
+            <select id="title" formControlName="title" class="formfield-module__input">
+                         <option value="" disabled selected>Select Title</option>
+                         <option *ngFor="let t of titleArray" [value]="t">
+                            {{t}}
+                          </option>
+                    </select>
+            <div class="formError" *ngIf="!title!.valid && title!.touched">
+                <div *ngIf="title!.errors!.required">Title is Required</div>
+            </div>
+        </div>
+        <div class="formfield-module__root">
+            <label for="firstName" class="formfield-module__label">First name<span class="asterisk__color">*</span></label>
+            <input id="firstName" formControlName="firstName" class="formfield-module__input" autocomplete="on" type="text" ngmodel/>
+            <div class="formError" *ngIf="!firstName?.valid && firstName?.touched">
+                <div *ngIf="firstName?.errors?.required">First name is Required</div>
+            </div>
+        </div>
+        <div class="formfield-module__root margin__left">
+            <label for="lastName" class="formfield-module__label">Last name<span class="asterisk__color">*</span></label>
+            <input id="lastName" formControlName="lastName" class="formfield-module__input" autocomplete="on" type="text" />
+            <div class="formError" *ngIf="!lastName?.valid && lastName?.touched">
+                <div *ngIf="lastName?.errors?.required">Last name is Required</div>
+            </div>
+        </div>
+    </div>
+    <div class="formField-row">
+        <div class="formfield-module__root">
+            <label for="email" class="formfield-module__label">Email Address<span class="asterisk__color">*</span></label>
+            <input id="email" formControlName="email" class="formfield-module__input" autocomplete="on" type="text" />
+            <div class="formError" *ngIf="!email?.valid && email?.touched">
+                <div *ngIf="email?.errors?.required">Email Address is Required</div>
+                <div *ngIf="email?.errors?.email">Email is invalid</div>
+            </div>
+        </div>
+        <div class="formfield-module__root margin__left">
+            <label for="countryCode" class="formfield-module__label">Country Code<span class="asterisk__color">*</span></label>
+            <select id="countryCode" formControlName="countryCode" class="formfield-module__input">
+                        <option value="" disabled selected>Select Country Code</option>
+                        <option *ngFor="let t of countryCodeArray" [value]="t">
+                            {{t}}
+                          </option>
+                    </select>
+            <div class="formError" *ngIf="!countryCode?.valid && countryCode?.touched">
+                <div *ngIf="countryCode?.errors?.required">Country Code is Required</div>
+            </div>
+        </div>
+        <div class="formfield-module__root margin__left">
+            <label for="phoneNumber" class="formfield-module__label">Phone Number<span class="asterisk__color">*</span></label>
+            <input id="phoneNumber" formControlName="phoneNumber" class="formfield-module__input" autocomplete="on" type="number" />
+            <div class="formError" *ngIf="!phoneNumber?.valid && phoneNumber?.touched">
+                <div *ngIf="phoneNumber?.errors?.required">Phone Number is Required</div>
+            </div>
+        </div>
+    </div>
+    <h2>Address:</h2>
+    <div class="formField-row">
+        <div class="formfield-module__root">
+            <label for="addressLine1" class="formfield-module__label">Address Line 1<span class="asterisk__color">*</span></label>
+            <input id="addressLine1" formControlName="addressLine1" class="formfield-module__input" autocomplete="on" type="text" />
+            <div class="formError" *ngIf="!addressLine1?.valid && addressLine1?.touched">
+                <div *ngIf="addressLine1?.errors?.required">Address Line 1 is Required</div>
+            </div>
+        </div>
+        <div class="formfield-module__root">
+            <label for="addressLine2" class="formfield-module__label">Address Line 2</label>
+            <input id="addressLine2" formControlName="addressLine2" class="formfield-module__input" autocomplete="on" type="text" />
+        </div>
+        <div class="formfield-module__root">
+            <label for="addressLine3" class="formfield-module__label">Address Line 3</label>
+            <input id="addressLine3" formControlName="addressLine3" class="formfield-module__input" autocomplete="on" type="text" />
+        </div>
+    </div>
+    <div class="formField-row">
+        <div class="formfield-module__root">
+            <label for="city" class="formfield-module__label">City or Town<span class="asterisk__color">*</span></label>
+            <input id="city" formControlName="city" class="formfield-module__input" autocomplete="on" type="text" />
+            <div class="formError" *ngIf="!city?.valid && city?.touched">
+                <div *ngIf="city?.errors?.required">City or Town is Required</div>
+            </div>
+        </div>
+        <div class="formfield-module__root">
+            <label for="county" class="formfield-module__label">County</label>
+            <select formControlName="county" id="county" class="formfield-module__input">
+                        <option value="" disabled selected>Select County</option>
+                        <option *ngFor="let t of CountyArray" [value]="t">
+                            {{t}}
+                          </option>
+                    </select>
+        </div>
+        <div class="formfield-module__root margin__left">
+            <label for="postCode" class="formfield-module__label">Postal Code<span class="asterisk__color">*</span></label>
+            <input id="postCode" formControlName="postCode" class="formfield-module__input" autocomplete="on" type="text" />
+            <div class="formError" *ngIf="!postCode?.valid && postCode?.touched">
+                <div *ngIf="postCode?.errors?.required">Postal Code is Required</div>
+            </div>
+        </div>
+    </div>
+    <button (click)="onSubmit()" class="next_btn">Next</button>
+</form>

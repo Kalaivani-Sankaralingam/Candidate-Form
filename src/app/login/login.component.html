@@ -1,0 +1,31 @@
+<div class="container_middle">
+    <div class="login_text">
+        <h1>Log in</h1>
+    </div>
+    <div class="login-information">
+        <form [formGroup]="loginForm">
+            <div class="formfield-module__root">
+                <label class="formfield-module__label " for="email">Email</label>
+                <input id="email" class="formfield-module__input" type="text" formControlName="email" placeholder="Enter your email" />
+                <div class="formError" *ngIf="!email?.valid && email?.touched">
+                    <div *ngIf="email?.errors?.required">Email is required</div>
+                    <div *ngIf="email?.errors?.email">Enter valid email</div>
+                </div>
+            </div>
+            <div class="formfield-module__root">
+                <label for="password" class="formfield-module__label">Password</label>
+                <input id="password" class="formfield-module__input" autocomplete="on" type="password" formControlName="password" placeholder="Enter your password" />
+                <div class="formError" *ngIf="!password?.valid && password?.touched">
+                    <div *ngIf="password?.errors?.required">Password is required</div>
+                    <div *ngIf="password?.errors?.pattern">Enter valid Password</div>
+                </div>
+            </div>
+            <div class="formfield-module__root formfield__direction">
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+                <label for="rememberMe" class="custom-control__label">Remember Me</label>
+                <a class="forgotPassword" routerLink="/forgotPassword">Forgot Password?</a>
+            </div>
+            <button class="btn_login" routerLink="/homePage" [disabled]="!loginForm.valid" (click)="onSubmit()">Log in</button>
+        </form>
+    </div>
+</div>

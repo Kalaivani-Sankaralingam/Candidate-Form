@@ -1,0 +1,34 @@
+<div class="homePage_content">
+    <div><span class="asterisk__color">*</span> Indicates a required field</div>
+    <div class="PersonalInfo_form">
+        <div class="accodrion_item">
+            <div class="accordion_header" (click)="onHeaderClick(1)">
+                <h1>Personal Information</h1>
+            </div>
+            <div class="accordion_content" *ngIf="accordionShown == 1">
+                <app-personal-info (passToParent)="setValue($event)"></app-personal-info>
+            </div>
+        </div>
+    </div>
+    <div class="edu_exp_form">
+        <div class="accodrion_item">
+            <div class="accordion_header" (click)="onHeaderClick(2)">
+                <h1>Education</h1>
+            </div>
+        </div>
+        <div class="accordion_content" *ngIf="accordionShown == 2">
+            <app-education (passToParent)="setValue($event)"></app-education>
+        </div>
+    </div>
+
+    <div class="work_exp_form">
+        <div class="accodrion_item" (click)="onHeaderClick(3)">
+            <div class="accordion_header">
+                <h1>Work Experience</h1>
+            </div>
+        </div>
+        <div class="accordion_content" *ngIf="accordionShown == 3">
+            <app-work-experience (passToParent)="setValue($event)"></app-work-experience>
+        </div>
+    </div>
+</div>

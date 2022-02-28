@@ -1,0 +1,54 @@
+header.container {
+    height: 70px;
+    box-shadow: 0 1px 10px 0 rgb(0 0 0 / 20%);
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.header_logo {
+    background: url(~src/assets/logo.png) no-repeat;
+    width: 400px;
+    height: 100%;
+    background-size: 7.625rem 4rem;
+    margin-left: 50px;
+    flex: auto;
+}
+
+.header_login_btn {
+    margin-left: auto;
+    margin-right: 20px;
+    color: #fff;
+    background-color: #04aa6d;
+}
+
+.header_login_btn:hover {
+    background-color: #059862;
+}
+
+.header_register_btn {
+    margin-right: 20px;
+    background-color: #fff;
+    color: #282A35;
+    border: 2px solid #04AA6D;
+}
+
+@media (max-width: 415px) {
+    .header_logo {
+        width: 107px;
+        height: 77%;
+        background-size: 6rem 3rem;
+        margin-left: 10px;
+    }
+    button {
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 40px;
+        line-height: 1.17;
+        font-size: 12px;
+        font-weight: 300;
+    }
+}

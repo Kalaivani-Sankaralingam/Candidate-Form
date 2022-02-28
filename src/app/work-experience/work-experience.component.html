@@ -1,0 +1,51 @@
+<form [formGroup]="workForm">
+    <div formArrayName="workDetails">
+        <div class="cls_workExp" *ngFor="let w of workDetails.controls;let i = index" [formGroupName]="i">
+            <h3>Work Experience {{i+1}}</h3>
+            <div class="formField-row">
+                <div class="formfield-module__root">
+                    <label for="jobTitle{{i}}" class="formfield-module__label">Job Title<span class="asterisk__color">*</span></label>
+                    <input id="jobTitle{{i}}" formControlName="jobTitle" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="workDetails.controls[i].get('jobTitle')?.invalid && workDetails.controls[i].get('jobTitle')?.touched">Job Title is Required</div>
+                </div>
+                <div class="formfield-module__root">
+                    <label for="companyName{{i}}" class="formfield-module__label">Company Name<span class="asterisk__color">*</span></label>
+                    <input id="companyName{{i}}" formControlName="companyName" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="workDetails.controls[i].get('companyName')?.invalid && workDetails.controls[i].get('companyName')?.touched">Company Name is Required</div>
+                </div>
+                <div class="formfield-module__root">
+                    <label for="location{{i}}" class="formfield-module__label">Location<span class="asterisk__color">*</span></label>
+                    <input id="location{{i}}" formControlName="location" class="formfield-module__input" type="text" />
+                    <div class="formError" *ngIf="workDetails.controls[i].get('location')?.invalid && workDetails.controls[i].get('location')?.touched">Location is Required</div>
+                </div>
+            </div>
+            <div class="formField-row">
+                <div class="formfield-module__root">
+                    <div class="cls_desc">
+                        <label for="description{{i}}" class="formfield-module__label">Description<span class="asterisk__color">*</span></label>
+                        <textarea id="description{{i}}" rows="4" formControlName="description" class="formfield-module__input"></textarea>
+                        <div class="formError" *ngIf="workDetails.controls[i].get('description')?.invalid && workDetails.controls[i].get('description')?.touched">Description is Required</div>
+                    </div>
+                    <div>
+                        <label for="workHere{{i}}" class="formfield-module__label">I currently work here</label>
+                        <input id="workHere{{i}}" formControlName="workHere" class="formfield-module__input" type="checkbox" />
+                    </div>
+                </div>
+                <div class="formfield-module__root">
+                    <label for="fromDate{{i}}" class="formfield-module__label">From<span class="asterisk__color">*</span></label>
+                    <input id="fromDate{{i}}" formControlName="fromDate" class="formfield-module__input" type="month" />
+                    <div class="formError" *ngIf="workDetails.controls[i].get('fromDate')?.invalid && workDetails.controls[i].get('fromDate')?.touched">From date is Required</div>
+
+                </div>
+                <div class="formfield-module__root">
+                    <label for="toDate{{i}}" class="formfield-module__label">To</label>
+                    <input id="toDate{{i}}" formControlName="toDate" class="formfield-module__input" type="month" />
+                </div>
+            </div>
+            <button (click)=" remove(i) " class="remove_btn "></button>
+        </div>
+    </div>
+    <button (click)="add() " class="add_btn " *ngIf="_counter==0 ">Add Experience</button>
+    <button (click)="add() " class="add_btn " *ngIf="_counter>= 1">Add another</button>
+    <button (click)="onSubmit()" class="next_btn" [disabled]="!workForm.valid  && this.workDetails.length>0">Save & Continue</button>
+</form>
