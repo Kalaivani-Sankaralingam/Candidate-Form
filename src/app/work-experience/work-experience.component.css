@@ -14,7 +14,7 @@ h3 {
 }
 
 .remove_btn {
-    background: url(/assets/red-bin.png) no-repeat;
+    background: url(~src/assets/red-bin.png) no-repeat;
     background-size: 2rem 2.5rem;
     border-radius: 0;
     padding-right: 10px;
